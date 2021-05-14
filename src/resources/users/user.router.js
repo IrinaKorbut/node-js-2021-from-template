@@ -8,14 +8,23 @@ router.route('/').get(async (req, res) => {
 });
 
 router.route('/').post(async (req, res) => {
-  const user = await usersService.postUser(req.body);
+  const user = await usersService.create(req.body);
   res.status(201).json((User.toResponse(user)));
 });
 
 router.route('/:id').get(async (req, res) => {
-  const user = await usersService.getUser(req.params.id);
+  const user = await usersService.get(req.params.id);
   res.status(200).json((User.toResponse(user)));
 });
 
+router.route('/:id').delete(async (req, res) => {
+  await usersService.remove(req.params.id);
+  res.sendStatus(200);
+});
+
+router.route('/:id').put(async (req, res) => {
+  const user = await usersService.update(req.params.id, req.body);
+  res.status(200).json((User.toResponse(user)));
+});
 
 module.exports = router;
