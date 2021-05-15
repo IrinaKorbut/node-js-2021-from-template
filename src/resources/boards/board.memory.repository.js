@@ -17,10 +17,7 @@ const create = async (boardData) => {
 const remove = async (id) => {
   const board = await get(id);
   const boardIndex = boardDB.indexOf(board);
-  if (boardIndex > -1) {
-    return boardDB.splice(boardIndex, 1);
-  }  
-  return null;
+  return boardIndex > -1 ? boardDB.splice(boardIndex, 1) : null;
 }
 
 const update = async (id, boardData) => {

@@ -17,10 +17,7 @@ const create = async (userData) => {
 const remove = async (id) => {
   const board = await get(id);
   const userIndex = userDB.indexOf(board);
-  if (userIndex > -1) {
-    return userDB.splice(userIndex, 1);
-  }  
-  return null;
+  return userIndex > -1 ? userDB.splice(userIndex, 1) : null;
 }
 
 const update = async (id, user) => {
