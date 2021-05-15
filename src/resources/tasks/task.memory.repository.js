@@ -28,10 +28,20 @@ const update = async (id, taskData) => {
   return get(id);
 }
 
+const clearTasksAfterDeletingBoard = async (boardId) => {
+  for (let i = 0; i < taskDB.length; i += 1) {
+    if (taskDB[i].boardId === boardId) {
+      taskDB.splice(i, 1)
+	    i -= 1
+    }
+  }
+}
+
 module.exports = { 
   getAll,
   create,
   get,
   remove,
-  update
+  update,
+  clearTasksAfterDeletingBoard
  };
