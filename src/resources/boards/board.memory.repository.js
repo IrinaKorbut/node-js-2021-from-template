@@ -18,8 +18,7 @@ const remove = async (id) => {
   const board = await get(id);
   const boardIndex = boardDB.indexOf(board);
   if (boardIndex > -1) {
-    const deletedBoard = boardDB.splice(boardIndex, 1);
-    return deletedBoard;
+    return boardDB.splice(boardIndex, 1);
   }  
   return null;
 }

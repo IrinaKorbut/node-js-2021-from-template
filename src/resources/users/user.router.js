@@ -14,12 +14,20 @@ router.route('/').post(async (req, res) => {
 
 router.route('/:id').get(async (req, res) => {
   const user = await usersService.get(req.params.id);
-  res.status(200).json((User.toResponse(user)));
+  if (user) {
+    res.status(200).json((User.toResponse(user)));
+  } else {
+    res.sendStatus(404);
+  }
 });
 
 router.route('/:id').delete(async (req, res) => {
-  await usersService.remove(req.params.id);
-  res.sendStatus(200);
+  const deleted = await usersService.remove(req.params.id);
+  if (deleted) {
+    res.sendStatus(204);
+  } else {
+    res.sendStatus(404);
+  }
 });
 
 router.route('/:id').put(async (req, res) => {

@@ -1,5 +1,4 @@
 const router = require('express').Router();
-// const Board = require('./board.model');
 const boardsService = require('./board.service');
 
 router.route('/').get(async (req, res) => {
@@ -18,8 +17,7 @@ router.route('/:id').get(async (req, res) => {
     res.status(200).json(board);
   } else {
     res.sendStatus(404);
-  }
-  
+  }  
 });
 
 router.route('/:id').delete(async (req, res) => {
