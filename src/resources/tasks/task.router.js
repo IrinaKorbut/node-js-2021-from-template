@@ -18,6 +18,15 @@ router.route('/:id').get(async (req, res) => {
   } else {
     res.sendStatus(404);
   }  
+});
+
+router.route('/:id').delete(async (req, res) => {
+  const deleted = await tasksService.remove(req.params.id);
+  if (deleted) {
+    res.sendStatus(204);
+  } else {
+    res.sendStatus(404);
+  }  
 })
 
 module.exports = router;

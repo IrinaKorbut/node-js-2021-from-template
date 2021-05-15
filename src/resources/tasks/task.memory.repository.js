@@ -16,9 +16,15 @@ const get = async (id) => {
   return targetTask;
 }
 
+const remove = async (id) => {
+  const task = await get(id);
+  const taskIndex = taskDB.indexOf(task);
+  return taskIndex > -1 ? taskDB.splice(taskIndex, 1) : null;
+}
+
 module.exports = { 
   getAll,
   create,
   get,
-
+  remove,
  };
