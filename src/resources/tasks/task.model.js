@@ -6,7 +6,7 @@ class Task {
     title = 'title',
     order = 0,
     description = 'description task',
-    userId = 'userID', // assignee
+    userId = 'userID',
     boardId = 'boardId',
     columnId = 'columnId',
   } = {}) {
