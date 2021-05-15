@@ -1,6 +1,17 @@
-const getAll = async () => 
-  // TODO: mock implementation. should be replaced during task development
-   []
-;
+const taskDB = require('../../common/dataBaseInMemory/taskDB');
+const Task = require('./task.model');
 
-module.exports = { getAll };
+const getAll = async () => taskDB;
+
+const create = async (boardId, taskData) => {
+  const taskDataDuplicate = { ...taskData }
+  taskDataDuplicate.boardId = taskData.boardId ? taskData.boardId : boardId;
+  const task = new Task(taskDataDuplicate);
+  taskDB.push(task);
+  return task;
+}
+
+module.exports = { 
+  getAll,
+  create,
+ };
