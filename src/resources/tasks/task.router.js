@@ -9,6 +9,15 @@ router.route('/').get(async (req, res) => {
 router.route('/').post(async (req, res) => {
   const task = await tasksService.create(req.params.boardId, req.body);
   res.status(201).json(task);
+});
+
+router.route('/:id').get(async (req, res) => {
+  const task = await tasksService.get(req.params.id);
+  if (task) {
+    res.status(200).json(task);
+  } else {
+    res.sendStatus(404);
+  }  
 })
 
 module.exports = router;

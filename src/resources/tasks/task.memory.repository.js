@@ -11,7 +11,14 @@ const create = async (boardId, taskData) => {
   return task;
 }
 
+const get = async (id) => {
+  const targetTask = taskDB.find(task => task.id === id);
+  return targetTask;
+}
+
 module.exports = { 
   getAll,
   create,
+  get,
+
  };
