@@ -27,6 +27,11 @@ router.route('/:id').delete(async (req, res) => {
   } else {
     res.sendStatus(404);
   }  
+});
+
+router.route('/:id').put(async (req, res) => {
+  const task = await tasksService.update(req.params.id, req.body);
+  res.status(200).json(task);
 })
 
 module.exports = router;

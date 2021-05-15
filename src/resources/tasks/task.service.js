@@ -8,10 +8,12 @@ const get = (id) => tasksRepo.get(id);
 
 const remove = (id) => tasksRepo.remove(id);
 
+const update = (id, taskData) => tasksRepo.update(id, taskData);
+
 module.exports = { 
     getAll,
     create,
     get,
     remove,
-
+    update
 };
