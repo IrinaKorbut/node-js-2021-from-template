@@ -1,4 +1,4 @@
-const uuid = require('uuid');
+const uuid = require('uuid').v4;
 
 class Board {
   constructor({
@@ -9,11 +9,6 @@ class Board {
     this.id = id;
     this.title = title;
     this.columns = columns;
-  }
-
-  static toResponse(board) {
-    const { id, title, columns } = board;
-    return { id, title, columns };
   }
 }
 
