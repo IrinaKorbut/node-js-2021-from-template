@@ -37,11 +37,21 @@ const clearTasksAfterDeletingBoard = async (boardId) => {
   }
 }
 
+const updateTasksAfterDeletingUser = async (userId) => {
+  taskDB.forEach(task => {
+    const taskCopy = task;
+    if (taskCopy.userId === userId) {
+      taskCopy.userId = null;
+    }
+  })
+}
+
 module.exports = { 
   getAll,
   create,
   get,
   remove,
   update,
-  clearTasksAfterDeletingBoard
+  clearTasksAfterDeletingBoard,
+  updateTasksAfterDeletingUser
  };
