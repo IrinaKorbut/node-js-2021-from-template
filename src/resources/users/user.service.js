@@ -14,21 +14,21 @@ const getAll = () => usersRepo.getAll();
 /**
  * Create user
  * @param {object} userData - Object of user's data
- * @returns {User[]} Object of user
+ * @returns {User} - Object of user
  */
 const create = (userData) => usersRepo.create(userData);
 
 /**
- * Get user by id
- * @param {string} id - User's id
- * @returns {User[]} Object of user
+ * Get user by ID
+ * @param {string} id - User ID
+ * @returns {User} - Object of user
  */
 const get = (id) => usersRepo.get(id);
 
 /**
- * Remove user by id
- * @param {string} id - User's id
- * @returns {User[]} Object of user or null
+ * Remove user by ID
+ * @param {string} id - User ID
+ * @returns {User} - Object of user
  */
 const remove = (id) => {
     tasksRepo.updateTasksAfterDeletingUser(id);
@@ -36,10 +36,10 @@ const remove = (id) => {
 };
 
 /**
- * Update user by id
- * @param {string} id - User's id
+ * Update user by ID
+ * @param {string} id - User ID
  * @param {object} userData - Object of user's data
- * @returns {User[]} Object of user
+ * @returns {User} - Object of user
  */
 const update = (id, userData) => usersRepo.update(id, userData);
 

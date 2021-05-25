@@ -7,7 +7,7 @@ const userDB = require("../../common/dataBaseInMemory/userDB");
 
 /**
  * Get all users
- * @returns {Promise<User[]>} - Promise with array of user's objects
+ * @returns {Promise<User[]>} - Promise with array of users
  */
 const getAll = async () => userDB;
 
@@ -35,7 +35,7 @@ const create = async (userData) => {
 /**
  * Remove user by id
  * @param {string} id - User ID
- * @returns {User|object} - {Promise<User>} - Promise with User object or null
+ * @returns {Promise<User> | object} - Promise with User object or null
  */
 const remove = async (id) => {
   const board = await get(id);
