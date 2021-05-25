@@ -14,7 +14,7 @@ const getAll = async () => userDB;
 /**
  * Get user by id
  * @param {string} id - User ID
- * @returns {Promise<User>} - Promise with User object
+ * @returns {Promise<User>} - Promise with user object
  */
 const get = async (id) => {
   const targetUsers = userDB.find(user => user.id === id);

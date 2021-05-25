@@ -10,6 +10,6 @@
 /**
  * @type {User[]}
  */
-const userRepo = [];
+const userDB = [];
 
-module.exports = userRepo;
+module.exports = userDB;
