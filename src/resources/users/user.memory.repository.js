@@ -2,15 +2,19 @@ const User = require("./user.model");
 const userDB = require("../../common/dataBaseInMemory/userDB");
 
 /**
+ * @module userMemoryRepo
+ */
+
+/**
  * Get all users
- * @returns {array<object>} Array of user's objects
+ * @returns {Promise<User[]>} - Promise with array of user's objects
  */
 const getAll = async () => userDB;
 
 /**
  * Get user by id
- * @param {string} id - User's id
- * @returns {object} Object of user
+ * @param {string} id - User ID
+ * @returns {Promise<User>} - Promise with User object
  */
 const get = async (id) => {
   const targetUsers = userDB.find(user => user.id === id);
@@ -20,7 +24,7 @@ const get = async (id) => {
 /**
  * Create user
  * @param {object} userData - Object of user's data
- * @returns {object} Object of user
+ * @returns {Promise<User>} - Promise with User object
  */
 const create = async (userData) => {
   const user = new User(userData);
@@ -30,8 +34,8 @@ const create = async (userData) => {
 
 /**
  * Remove user by id
- * @param {string} id - User's id
- * @returns {object} Object of user or null
+ * @param {string} id - User ID
+ * @returns {User|object} - {Promise<User>} - Promise with User object or null
  */
 const remove = async (id) => {
   const board = await get(id);
@@ -41,9 +45,9 @@ const remove = async (id) => {
 
 /**
  * Update user by id
- * @param {string} id - User's id
+ * @param {string} id - User ID
  * @param {object} userData - Object of user's data
- * @returns {object} Object of user
+ * @returns {Promise<User>} - Promise with User object
  */
 const update = async (id, user) => {
   const oldUser = await get(id);

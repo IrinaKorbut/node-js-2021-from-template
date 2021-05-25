@@ -2,29 +2,33 @@ const usersRepo = require('./user.memory.repository');
 const tasksRepo = require('../tasks/task.memory.repository');
 
 /**
+ * @module userService
+ */
+
+/**
  * Get all users
- * @returns {array<object>} Array of user's objects
+ * @returns {User[]} Array of user's objects
  */
 const getAll = () => usersRepo.getAll();
 
 /**
  * Create user
  * @param {object} userData - Object of user's data
- * @returns {object} Object of user
+ * @returns {User[]} Object of user
  */
 const create = (userData) => usersRepo.create(userData);
 
 /**
  * Get user by id
  * @param {string} id - User's id
- * @returns {object} Object of user
+ * @returns {User[]} Object of user
  */
 const get = (id) => usersRepo.get(id);
 
 /**
  * Remove user by id
  * @param {string} id - User's id
- * @returns {object} Object of user or null
+ * @returns {User[]} Object of user or null
  */
 const remove = (id) => {
     tasksRepo.updateTasksAfterDeletingUser(id);
@@ -35,7 +39,7 @@ const remove = (id) => {
  * Update user by id
  * @param {string} id - User's id
  * @param {object} userData - Object of user's data
- * @returns {object} Object of user
+ * @returns {User[]} Object of user
  */
 const update = (id, userData) => usersRepo.update(id, userData);
 
