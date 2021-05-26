@@ -6,7 +6,7 @@ const tasksRepo = require('./task.memory.repository');
 
 /**
  * Get all tasks
- * @returns {Task[]} Array of task's objects
+ * @returns {Task[]} - Array of task's objects
  */
 const getAll = () => tasksRepo.getAll();
 

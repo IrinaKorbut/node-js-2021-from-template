@@ -33,7 +33,7 @@ const create = async (userData) => {
 }
 
 /**
- * Remove user by id
+ * Remove user by ID
  * @param {string} id - User ID
  * @returns {Promise<User> | object} - Promise with User object or null
  */
@@ -44,7 +44,7 @@ const remove = async (id) => {
 }
 
 /**
- * Update user by id
+ * Update user by ID
  * @param {string} id - User ID
  * @param {object} userData - Object of user's data
  * @returns {Promise<User>} - Promise with User object
