@@ -1,3 +1,5 @@
+import { User } from "../../resources/users/user.model";
+
 /**
  * User object definition
  * @typedef {object} User
@@ -10,6 +12,4 @@
 /**
  * @type {User[]}
  */
-const userDB = [];
-
-module.exports = userDB;
+export const userDB: User[] = [];

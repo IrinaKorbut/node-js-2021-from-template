@@ -1,5 +1,7 @@
-const usersRepo = require('./user.memory.repository');
-const tasksRepo = require('../tasks/task.memory.repository');
+import usersRepo from './user.memory.repository';
+import tasksRepo from '../tasks/task.memory.repository';
+import { User } from './user.model';
+import { IUser } from '../../types/index';
 
 /**
  * @module userService
@@ -9,30 +11,30 @@ const tasksRepo = require('../tasks/task.memory.repository');
  * Get all users
  * @returns {User[]} - Array of users
  */
-const getAll = () => usersRepo.getAll();
+const getAll = (): Promise<User[]> => usersRepo.getAll();
 
 /**
  * Create user
  * @param {object} userData - Object of user's data
  * @returns {User} - Object of user
  */
-const create = (userData) => usersRepo.create(userData);
+const create = (userData: IUser): Promise<User | null> => usersRepo.create(userData);
 
 /**
  * Get user by ID
  * @param {string} id - User ID
  * @returns {User} - Object of user
  */
-const get = (id) => usersRepo.get(id);
+const get = (id: string): Promise<User | null> => usersRepo.get(id);
 
 /**
  * Remove user by ID
  * @param {string} id - User ID
  * @returns {User} - Object of user
  */
-const remove = (id) => {
-    tasksRepo.updateTasksAfterDeletingUser(id);
-    return usersRepo.remove(id)
+const remove = (id: string): Promise<User | null> => {
+  tasksRepo.updateTasksAfterDeletingUser(id);
+  return usersRepo.remove(id);
 };
 
 /**
@@ -41,12 +43,12 @@ const remove = (id) => {
  * @param {object} userData - Object of user's data
  * @returns {User} - Object of user
  */
-const update = (id, userData) => usersRepo.update(id, userData);
+const update = (id: string, userData: IUser): Promise<User | null> => usersRepo.update(id, userData);
 
-module.exports = { 
-    getAll,
-    create,
-    get,
-    remove,
-    update,
- };
+export default {
+  getAll,
+  create,
+  get,
+  remove,
+  update,
+};
