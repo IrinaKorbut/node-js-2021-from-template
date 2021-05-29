@@ -8,13 +8,18 @@
 ## Downloading
 
 ```
-git clone {repository URL}
+git clone {https://github.com/IrinaKorbut/node-js-2021-from-template}
 ```
 
 ## Installing NPM modules
 
 ```
 npm install
+```
+## Build application
+
+```
+npm run build
 ```
 
 ## Running application
