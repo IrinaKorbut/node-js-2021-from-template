@@ -12,7 +12,8 @@
     "ecmaVersion": 2021,
     "ecmaFeatures": {
       "impliedStrict": true
-    }
+    },
+    "project": ["./tsconfig.json"]
   },
   "plugins": [
     "@typescript-eslint"
@@ -41,6 +42,13 @@
     "linebreak-style": "off",
     "node/no-unsupported-features/es-syntax": "off",
     "no-underscore-dangle": "off",
-    "import/prefer-default-export": "off"
-  }
+    "import/prefer-default-export": "off",
+    "lines-between-class-members": [
+      "error",
+      "always",
+      { "exceptAfterSingleLine": true  }
+    ],
+    "dot-notation": "off",
+    "@typescript-eslint/dot-notation": ["error"]
+  }  
 }
