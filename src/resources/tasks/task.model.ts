@@ -1,7 +1,6 @@
-import uuid from 'uuid';
+import { v4 } from 'uuid';
 import { ITask } from '../../types';
 
-const uuidV4 = uuid.v4;
 /**
  * Class to create a task object
  */
@@ -18,7 +17,7 @@ const uuidV4 = uuid.v4;
    * @param {object} taskData - Object of task's data
    */  
   constructor({
-    id = uuidV4(),
+    id = v4(),
     title = 'title',
     order = 0,
     description = 'description task',

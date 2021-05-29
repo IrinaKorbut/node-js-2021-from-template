@@ -1,7 +1,5 @@
-import uuid from 'uuid';
+import { v4 } from 'uuid';
 import { IBoard, IColumn } from '../../types';
-
-const uuidV4 = uuid.v4;
 
 export class Board implements IBoard {
   id: string;  
@@ -10,7 +8,11 @@ export class Board implements IBoard {
   /**
    * @param {object} boardData - Object of board's data
    */
-  constructor({ id = uuidV4(), title = 'Title', columns = [] } = {} as IBoard) {
+  constructor({ 
+    id = v4(), 
+    title = 'Title', 
+    columns = [] 
+  } = {} as IBoard) {
     /**
      * @type {string}
      */
