@@ -1,14 +1,16 @@
-const uuid = require('uuid').v4;
+import uuid from 'uuid';
+import { IBoard, IColumn } from '../../types';
 
-class Board {
+const uuidV4 = uuid.v4;
+
+export class Board implements IBoard {
+  id: string;  
+  title: string;
+  columns: IColumn[];
   /**
-   * @param {object} boardData - Object of board's data 
+   * @param {object} boardData - Object of board's data
    */
-  constructor({
-    id = uuid(),
-    title = 'Title',
-    columns  = []
-  } = {}) {
+  constructor({ id = uuidV4(), title = 'Title', columns = [] } = {} as IBoard) {
     /**
      * @type {string}
      */
@@ -21,7 +23,5 @@ class Board {
      * @type {string}
      */
     this.columns = columns;
-  }
+  }  
 }
-
-module.exports = Board;

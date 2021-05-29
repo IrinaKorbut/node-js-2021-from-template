@@ -1,3 +1,5 @@
+import { Board } from '../../resources/boards/board.model';
+
 /**
  * Board object definition
  * @typedef {object} Board
@@ -9,6 +11,4 @@
 /**
  * @type {Board[]}
  */
-const boardDB = [];
-
-module.exports = boardDB;
+ export const boardDB: Board[] = [];
