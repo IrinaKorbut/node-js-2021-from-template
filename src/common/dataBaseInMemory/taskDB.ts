@@ -1,4 +1,5 @@
-const Task = require('../../resources/tasks/task.model')
+import { Task } from '../../resources/tasks/task.model';
+
 
 /**
  * Task object definition
@@ -14,10 +15,8 @@ const Task = require('../../resources/tasks/task.model')
 /**
  * @type {Task[]}
  */
-const taskDB = [];
+ export const taskDB: Task[] = [];
 
-taskDB.push(new Task())
-taskDB.push(new Task())
-taskDB.push(new Task())
-
-module.exports = taskDB;
+taskDB.push(new Task());
+taskDB.push(new Task());
+taskDB.push(new Task());

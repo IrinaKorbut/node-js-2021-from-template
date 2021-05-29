@@ -1,4 +1,6 @@
-const tasksRepo = require('./task.memory.repository');
+import tasksRepo from './task.memory.repository';
+import { Task } from './task.model';
+import { ITask } from '../../types/index';
 
 /**
  * @module taskService
@@ -8,7 +10,7 @@ const tasksRepo = require('./task.memory.repository');
  * Get all tasks
  * @returns {Task[]} - Array of task's objects
  */
-const getAll = () => tasksRepo.getAll();
+const getAll = (): Promise<Task[]> => tasksRepo.getAll();
 
 /**
  * Create task
@@ -16,21 +18,21 @@ const getAll = () => tasksRepo.getAll();
  * @param {object} taskData - Object of task's data
  * @returns {Task} - Object of task
  */
-const create = (boardId, taskData) => tasksRepo.create(boardId, taskData);
+const create = (boardId: string, taskData: ITask): Promise<Task | null> => tasksRepo.create(boardId, taskData);
 
 /**
  * Get task by ID
  * @param {string} id - Task ID
  * @returns {Task} - Object of task
  */
-const get = (id) => tasksRepo.get(id);
+const get = (id: string): Promise<Task | null> => tasksRepo.get(id);
 
 /**
  * Remove task by ID
  * @param {string} id - Task ID
  * @returns {Task} - Object of task
  */
-const remove = (id) => tasksRepo.remove(id);
+const remove = (id: string): Promise<Task | null> => tasksRepo.remove(id);
 
 /**
  * Update task by ID
@@ -38,12 +40,12 @@ const remove = (id) => tasksRepo.remove(id);
  * @param {object} taskData - Object of task's data
  * @returns {Task} - Object of task
  */
-const update = (id, taskData) => tasksRepo.update(id, taskData);
+const update = (id: string, taskData: ITask): Promise<Task | null> => tasksRepo.update(id, taskData);
 
-module.exports = { 
-    getAll,
-    create,
-    get,
-    remove,
-    update
+export default {
+  getAll,
+  create,
+  get,
+  remove,
+  update,
 };
