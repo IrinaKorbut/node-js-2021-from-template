@@ -1,9 +1,6 @@
 import { v4 } from 'uuid';
 import { ITask } from '../../types';
 
-/**
- * Class to create a task object
- */
  export class Task implements ITask {  
   id: string;
   title: string;
@@ -12,10 +9,7 @@ import { ITask } from '../../types';
   userId: string | null;
   boardId: string;
   columnId: string;
-
-  /**
-   * @param {object} taskData - Object of task's data
-   */  
+ 
   constructor({
     id = v4(),
     title = 'title',
@@ -25,40 +19,12 @@ import { ITask } from '../../types';
     boardId = 'boardId',
     columnId = 'columnId',
   } = {} as ITask) {
-
-    /**
-     * @type {string}
-     */
     this.id = id;
-
-    /**
-     * @type {string}
-     */
     this.title = title;
-
-    /**
-     * @type {number}
-     */
-    this.order = order;
-    
-    /**
-     * @type {string}
-     */
+    this.order = order;  
     this.description = description;
-
-    /**
-     * @type {string}
-     */
     this.userId = userId;
-
-    /**
-     * @type {string}
-     */
     this.boardId = boardId;
-
-    /**
-     * @type {string}
-     */
     this.columnId = columnId;
   }    
 }
