@@ -4,7 +4,7 @@ import { NextFunction, Response } from 'express';
 import { ICustomError, IRequest } from '../types';
 
 
-export const errorLoggingFile = fs.createWriteStream(path.resolve(__dirname, '../../logging/errorLogging.txt'));
+export const errorLoggingFile = fs.createWriteStream(path.resolve(__dirname, '../../logs/errorLogging.txt'));
 
 export const errorLogger = (err: ICustomError, _req: IRequest, res: Response, next: NextFunction): void => {
     const { status = 500, message = 'InternalServerError' } = err;

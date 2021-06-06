@@ -4,7 +4,7 @@ import { finished } from 'stream';
 import { NextFunction, Response } from 'express';
 import { IRequest } from '../types';
 
-export const requestLoggingFile = fs.createWriteStream(path.resolve(__dirname, '../../logging/requestLogging.txt'));
+export const requestLoggingFile = fs.createWriteStream(path.resolve(__dirname, '../../logs/requestLogging.txt'));
 
 export const requestLogger = (req: IRequest, res: Response, next: NextFunction): void => {
   const { method, url, query, body } = req;
