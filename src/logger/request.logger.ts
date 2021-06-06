@@ -8,10 +8,10 @@ export const requestLoggingFile = fs.createWriteStream(path.resolve(__dirname, '
 
 export const requestLogger = (req: IRequest, res: Response, next: NextFunction): void => {
   const { method, url, query, body } = req;
-  next();
   finished(res, ():void => {
     const { statusCode }  = res;
     const str = `${method} ${url} Query parameters: ${JSON.stringify(query)} Body: ${JSON.stringify(body)} ${statusCode}`;
     requestLoggingFile.write(`LOG: ${str} \n`);
   })
+  next();
 };
