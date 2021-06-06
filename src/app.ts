@@ -10,7 +10,7 @@ import { router as taskRouter } from './resources/tasks/task.router';
 
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
-const { requestLogger, errorLogger } = logger;
+const { requestLogger, errorLogger, unhandledRejectionLogger, unhandledExceptionLogger } = logger;
 
 app.use(express.json());
 
@@ -33,14 +33,8 @@ app.use('/boards', taskRouter);
 app.use(errorLogger);
 
 process
-  .on('unhandledRejection', (reason, p) => {
-    console.error(reason, 'Unhandled Rejection at Promise', p);
-    process.exit(1);
-  })
-  .on('uncaughtException', err => {
-    console.error(err, 'Uncaught Exception thrown');
-    process.exit(1);
-  });
+  .on('unhandledRejection', unhandledRejectionLogger)
+  .on('uncaughtException', unhandledExceptionLogger);
 
 
 // throw Error('Oops!');
