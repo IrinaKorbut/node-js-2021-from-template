@@ -16,25 +16,20 @@ git clone {https://github.com/IrinaKorbut/node-js-2021-from-template}
 ```
 npm install
 ```
-## Build application
+## Run docker containers
 
 ```
-npm run build
+docker-compose up
 ```
+After this command containers should start
 
-## Running application
-
-```
-npm start
-```
-
-After starting the app on port (4000 as default) you can open
-in your browser OpenAPI documentation by typing http://localhost:4000/doc/.
+After starting the app on port (8080 as default) you can open
+in your browser OpenAPI documentation by typing http://localhost:8080/doc/.
 For more information about OpenAPI/Swagger please visit https://swagger.io/.
 
 ## Testing
 
-After application running open new terminal and enter:
+After containers running open new terminal and enter:
 
 To run all tests without authorization
 

@@ -2,14 +2,21 @@ version: '3'
 services:
   node:
     build: .
+    network_mode: my-own-network
+    restart: always
     ports:
       - ${PORT}:${PORT}
     depends_on:
       - postgres
     environment:
       - PORT=8080
+    volumes:
+      - ./logs:/usr/src/app/logs
   postgres:
     build: ./database
+    image: postgres:13.3-alpine
+    network_mode: my-own-network
+    restart: always
     ports:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}
     environment:
