@@ -10,6 +10,11 @@
 ```
 git clone {https://github.com/IrinaKorbut/node-js-2021-from-template}
 ```
+## Checkout to necessary branch
+
+```
+git checkout task6/docker-basic
+```
 
 ## Installing NPM modules
 
