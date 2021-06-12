@@ -6,7 +6,7 @@
     "jest": true,
     "node": true
   },
-  "parser": "@typescript-eslint/parser",  
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 2021,
@@ -24,6 +24,9 @@
       "node": {
         "paths": ["src"],
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true
       }
     }
   },
@@ -50,5 +53,5 @@
     ],
     "dot-notation": "off",
     "@typescript-eslint/dot-notation": ["error"]
-  }  
+  }
 }
