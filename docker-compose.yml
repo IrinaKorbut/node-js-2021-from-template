@@ -12,7 +12,7 @@ services:
       - PORT=8080
     volumes:
       - ./logs:/usr/src/app/logs
-      - ./db:/usr/src/app/db
+      - ./db:/usr/src/app/src/common/daraBaseInMemory
   postgres:
     build: ./database
     image: postgres:13.3-alpine
