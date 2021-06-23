@@ -40,3 +40,5 @@ export interface IUserWithoutPassword {
   name: string,
   login: string
 }
+
+export type UserDTO = Omit <IUser, 'id'>;

@@ -1,41 +1,30 @@
-import { User } from './user.model';
 import { userDB } from '../../common/dataBaseInMemory/userDB';
-import { IUser } from '../../types';
+import { IUser, UserDTO } from '../../types';
 
-const getAll = async (): Promise<User[]> => userDB;
+const getAll = async (): Promise<Omit <IUser[], 'password'>> => userDB.findMany();
 
-const get = async (id: string): Promise<User | null> => {
-  const targetUsers = userDB.find((user) => user.id === id);
-  return targetUsers || null;
+const get = async (id: string): Promise<IUser | 'NOT_FOUND'> => {
+  const targetUsers = userDB.findOne(id);
+  return targetUsers || 'NOT_FOUND';
 };
 
-const create = async (userData: IUser): Promise<User | null> => {
-  const user = new User(userData);
-  userDB.push(user);
-  const createdUser = await get(user.id);
-  return createdUser || null;
+const create = async (userData: IUser): Promise<IUser> => {
+  const newUser = userDB.create(userData);
+  const savedUser = userDB.save(newUser);
+  return savedUser;
 };
 
-const remove = async (id: string): Promise<User | null> => {
-  const user = await get(id);
-  let userIndex = -1;
-  if (user) {
-    userIndex = userDB.indexOf(user);
-  }
-  const removedUser = userDB.splice(userIndex, 1)[0];
-  return removedUser || null;
+const remove = async (id: string): Promise<'NOT_FOUND' | 'DELETED'> => {
+  const removedUser = userDB.remove(id);
+  return removedUser;
 };
 
-const update = async (id: string, user: IUser): Promise<User | null> => {
-  const oldUser = await get(id);
-  if (oldUser) {
-    userDB[userDB.indexOf(oldUser)] = { ...oldUser, ...user, id };
-  }
-  const updatedUser = await get(id);
-  return updatedUser || null;
+const update = async (id: string, user: UserDTO): Promise< IUser | 'NOT_FOUND'> => {
+  const updatedUser = userDB.update(id, user);
+  return updatedUser;
 };
 
-export default {
+export const usersRepo =  {
   getAll,
   create,
   get,

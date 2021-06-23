@@ -1,22 +1,22 @@
-import usersRepo from './user.memory.repository';
+import { usersRepo } from './user.memory.repository';
 import tasksRepo from '../tasks/task.memory.repository';
-import { User } from './user.model';
-import { IUser } from '../../types/index';
+// import { User } from './user.model';
+import { IUser, UserDTO } from '../../types/index';
 
-const getAll = (): Promise<User[]> => usersRepo.getAll();
+const getAll = (): Promise<Omit <IUser[], 'password'>> => usersRepo.getAll();
 
-const create = (userData: IUser): Promise<User | null> => usersRepo.create(userData);
+const create = (userData: IUser): Promise<IUser> => usersRepo.create(userData);
 
-const get = (id: string): Promise<User | null> => usersRepo.get(id);
+const get = (id: string): Promise<IUser | 'NOT_FOUND'> => usersRepo.get(id);
 
-const remove = (id: string): Promise<User | null> => {
+const remove = (id: string): Promise<'NOT_FOUND' | 'DELETED'> => {
   tasksRepo.updateTasksAfterDeletingUser(id);
   return usersRepo.remove(id);
 };
 
-const update = (id: string, userData: IUser): Promise<User | null> => usersRepo.update(id, userData);
+const update = (id: string, userData: UserDTO): Promise<IUser | 'NOT_FOUND'> => usersRepo.update(id, userData);
 
-export default {
+export const usersService = {
   getAll,
   create,
   get,
