@@ -37,7 +37,7 @@ class USER_DB {
     return updatedUser || 'NOT_FOUND';
   }
 
-  remove(id: string): 'DELETED' | 'NOT_FOUND' {
+  delete(id: string): 'DELETED' | 'NOT_FOUND' {
     const deletedUser = this.findOne(id);
     if (deletedUser !== 'NOT_FOUND') {
       this._db = this._db.filter(user => user.id !== id);

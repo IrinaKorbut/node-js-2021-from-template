@@ -1,6 +1,5 @@
 import { usersRepo } from './user.memory.repository';
 import tasksRepo from '../tasks/task.memory.repository';
-// import { User } from './user.model';
 import { IUser, UserDTO } from '../../types/index';
 
 const getAll = (): Promise<Omit <IUser[], 'password'>> => usersRepo.getAll();

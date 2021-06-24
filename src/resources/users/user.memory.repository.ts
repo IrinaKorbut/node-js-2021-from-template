@@ -1,27 +1,37 @@
-import { userDB } from '../../common/dataBaseInMemory/userDB';
-import { IUser, UserDTO } from '../../types';
+import { getRepository} from 'typeorm';
+import { UserDTO } from '../../types';
+import User from '../../entities/user'
 
-const getAll = async (): Promise<Omit <IUser[], 'password'>> => userDB.findMany();
-
-const get = async (id: string): Promise<IUser | 'NOT_FOUND'> => {
-  const targetUsers = userDB.findOne(id);
-  return targetUsers || 'NOT_FOUND';
+const getAll = async (): Promise<Omit <User[], 'password'>> => {
+  const userRepository = getRepository(User);
+  const users = await userRepository.find({ where: {} });
+  return users;
 };
 
-const create = async (userData: IUser): Promise<IUser> => {
-  const newUser = userDB.create(userData);
-  const savedUser = userDB.save(newUser);
+const get = async (id: string): Promise<User | 'NOT_FOUND'> => {
+  const userRepository = getRepository(User);
+  const targetUser = await userRepository.findOne(id);
+  return targetUser || 'NOT_FOUND';
+};
+
+const create = async (userData: User): Promise<User> => {
+  const userRepository = getRepository(User);
+  const newUser = await userRepository.create(userData);
+  const savedUser = await userRepository.save(newUser);
   return savedUser;
 };
 
 const remove = async (id: string): Promise<'NOT_FOUND' | 'DELETED'> => {
-  const removedUser = userDB.remove(id);
-  return removedUser;
+  const userRepository = getRepository(User);
+  const removedUser = await userRepository.delete(id);
+  if (removedUser.affected) return 'DELETED';
+  return 'NOT_FOUND';
 };
 
-const update = async (id: string, user: UserDTO): Promise< IUser | 'NOT_FOUND'> => {
-  const updatedUser = userDB.update(id, user);
-  return updatedUser;
+const update = async (id: string, user: UserDTO): Promise<User | 'NOT_FOUND'> => {
+  const userRepository = getRepository(User);
+  const updatedUser = await userRepository.update(id, user);
+  return updatedUser.raw;
 };
 
 export const usersRepo =  {
