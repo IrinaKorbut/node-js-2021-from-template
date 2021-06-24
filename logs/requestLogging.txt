@@ -1,0 +1,134 @@
+LOG: GET /users Query parameters: {} Body: {} 200 
+LOG: POST /users Query parameters: {} Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"} 201 
+LOG: GET /users/4d1486dd-c739-4791-aca9-3920c939de94 Query parameters: {} Body: {} 200 
+LOG: DELETE /users/4d1486dd-c739-4791-aca9-3920c939de94 Query parameters: {} Body: {} 204 
+LOG: POST /users Query parameters: {} Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"} 201 
+LOG: DELETE /users/fe7ab17e-1f7a-46cd-804f-394335a0b678 Query parameters: {} Body: {} 204 
+LOG: POST /users Query parameters: {} Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"} 201 
+LOG: PUT /users/79f37670-74aa-421d-a546-764bac146e3f Query parameters: {} Body: {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd","id":"79f37670-74aa-421d-a546-764bac146e3f"} 200 
+LOG: GET /users/79f37670-74aa-421d-a546-764bac146e3f Query parameters: {} Body: {} 200 
+LOG: DELETE /users/79f37670-74aa-421d-a546-764bac146e3f Query parameters: {} Body: {} 204 
+LOG: POST /users Query parameters: {} Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"} 201 
+LOG: DELETE /users/dc3bb5f7-50a5-493b-b653-36b9d1721800 Query parameters: {} Body: {} 204 
+LOG: POST /users Query parameters: {} Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"} 201 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: POST /boards/dd1a50e4-e52c-4100-bb86-ade5d522ce4e/tasks Query parameters: {} Body: {"title":"Task #1","order":1,"description":"Lorem ipsum","userId":"968bab59-11fb-4343-a7fa-767a48c0a4ce","boardId":"dd1a50e4-e52c-4100-bb86-ade5d522ce4e"} 201 
+LOG: POST /boards/dd1a50e4-e52c-4100-bb86-ade5d522ce4e/tasks Query parameters: {} Body: {"title":"Task #2","order":2,"description":"Lorem ipsum","userId":"968bab59-11fb-4343-a7fa-767a48c0a4ce","boardId":"dd1a50e4-e52c-4100-bb86-ade5d522ce4e"} 201 
+LOG: DELETE /users/968bab59-11fb-4343-a7fa-767a48c0a4ce Query parameters: {} Body: {} 204 
+LOG: GET /boards/dd1a50e4-e52c-4100-bb86-ade5d522ce4e/tasks/b80a5b47-ee94-451d-8cb5-080f0b8a18ea Query parameters: {} Body: {} 200 
+LOG: GET /boards/dd1a50e4-e52c-4100-bb86-ade5d522ce4e/tasks/a9bce8f0-cb2e-4251-9a7e-98ea9b90602b Query parameters: {} Body: {} 200 
+LOG: DELETE /boards/dd1a50e4-e52c-4100-bb86-ade5d522ce4e/tasks/b80a5b47-ee94-451d-8cb5-080f0b8a18ea Query parameters: {} Body: {} 204 
+LOG: DELETE /boards/dd1a50e4-e52c-4100-bb86-ade5d522ce4e/tasks/a9bce8f0-cb2e-4251-9a7e-98ea9b90602b Query parameters: {} Body: {} 204 
+LOG: DELETE /boards/dd1a50e4-e52c-4100-bb86-ade5d522ce4e Query parameters: {} Body: {} 204 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: GET /boards Query parameters: {} Body: {} 200 
+LOG: GET /boards Query parameters: {} Body: {} 200 
+LOG: GET /boards/0899da6f-b7f2-4a41-8b70-157f3dd9fe1f Query parameters: {} Body: {} 200 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: DELETE /boards/bc05e116-c879-4bd9-8237-b2e2c5dda6cd Query parameters: {} Body: {} 204 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: PUT /boards/9ac27782-9312-4319-98e0-06283466131f Query parameters: {} Body: {"id":"9ac27782-9312-4319-98e0-06283466131f","title":"Autotest updated board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 200 
+LOG: GET /boards/9ac27782-9312-4319-98e0-06283466131f Query parameters: {} Body: {} 200 
+LOG: DELETE /boards/9ac27782-9312-4319-98e0-06283466131f Query parameters: {} Body: {} 204 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: DELETE /boards/c593856f-95aa-4b70-9df3-240de8eea973 Query parameters: {} Body: {} 204 
+LOG: GET /boards/c593856f-95aa-4b70-9df3-240de8eea973 Query parameters: {} Body: {} 404 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: POST /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks Query parameters: {} Body: {"title":"Task #1","order":1,"description":"Lorem ipsum","boardId":"3ffa68ce-c537-428a-ad2f-de4b961a22ab","userId":null,"columnId":null} 201 
+LOG: POST /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks Query parameters: {} Body: {"title":"Task #3","order":3,"description":"Lorem ipsum","boardId":"3ffa68ce-c537-428a-ad2f-de4b961a22ab","userId":null,"columnId":null} 201 
+LOG: POST /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks Query parameters: {} Body: {"title":"Task #2","order":2,"description":"Lorem ipsum","boardId":"3ffa68ce-c537-428a-ad2f-de4b961a22ab","userId":null,"columnId":null} 201 
+LOG: POST /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks Query parameters: {} Body: {"title":"Task #4","order":4,"description":"Lorem ipsum","boardId":"3ffa68ce-c537-428a-ad2f-de4b961a22ab","userId":null,"columnId":null} 201 
+LOG: POST /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks Query parameters: {} Body: {"title":"Task #5","order":5,"description":"Lorem ipsum","boardId":"3ffa68ce-c537-428a-ad2f-de4b961a22ab","userId":null,"columnId":null} 201 
+LOG: GET /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks/d376384a-e7fa-420f-92a4-8412852aa6d9 Query parameters: {} Body: {} 200 
+LOG: GET /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks/9a00aca6-8f02-46fc-834c-d3ff55a1ee64 Query parameters: {} Body: {} 200 
+LOG: GET /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks/1212c5ab-89ad-4709-b18b-8939bf47164c Query parameters: {} Body: {} 200 
+LOG: GET /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks/5a3eb717-92c5-4024-bc42-16b450999cec Query parameters: {} Body: {} 200 
+LOG: GET /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks/03d5db80-21ce-4e9a-9898-4974edc23486 Query parameters: {} Body: {} 200 
+LOG: DELETE /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab Query parameters: {} Body: {} 204 
+LOG: GET /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks/9a00aca6-8f02-46fc-834c-d3ff55a1ee64 Query parameters: {} Body: {} 404 
+LOG: GET /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks/1212c5ab-89ad-4709-b18b-8939bf47164c Query parameters: {} Body: {} 404 
+LOG: GET /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks/5a3eb717-92c5-4024-bc42-16b450999cec Query parameters: {} Body: {} 404 
+LOG: GET /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks/03d5db80-21ce-4e9a-9898-4974edc23486 Query parameters: {} Body: {} 404 
+LOG: GET /boards/3ffa68ce-c537-428a-ad2f-de4b961a22ab/tasks/d376384a-e7fa-420f-92a4-8412852aa6d9 Query parameters: {} Body: {} 404 
+LOG: DELETE /boards/0899da6f-b7f2-4a41-8b70-157f3dd9fe1f Query parameters: {} Body: {} 204 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: POST /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f/tasks Query parameters: {} Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null} 201 
+LOG: GET /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f/tasks Query parameters: {} Body: {} 200 
+LOG: GET /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f/tasks Query parameters: {} Body: {} 200 
+LOG: GET /boards/boardId/tasks/1c07e066-66ed-480f-b7bd-3fbe1ea3dffc Query parameters: {} Body: {} 200 
+LOG: POST /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f/tasks Query parameters: {} Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null} 201 
+LOG: DELETE /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f/tasks/8e40d673-7a61-4d6b-bc49-ab2150978578 Query parameters: {} Body: {} 204 
+LOG: POST /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f/tasks Query parameters: {} Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null} 201 
+LOG: PUT /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f/tasks/1104f55b-fccd-4b4e-af2e-e97d8815bc07 Query parameters: {} Body: {"id":"1104f55b-fccd-4b4e-af2e-e97d8815bc07","title":"Autotest updated task","order":0,"description":"Lorem ipsum","userId":null,"boardId":"1edf96f9-5a19-4c27-af04-46b1e03f180f","columnId":null} 200 
+LOG: GET /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f/tasks/1104f55b-fccd-4b4e-af2e-e97d8815bc07 Query parameters: {} Body: {} 200 
+LOG: GET /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f/tasks/04361e22-0f66-4aa8-89be-260e346979a6 Query parameters: {} Body: {} 200 
+LOG: DELETE /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f/tasks/04361e22-0f66-4aa8-89be-260e346979a6 Query parameters: {} Body: {} 204 
+LOG: GET /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f/tasks/04361e22-0f66-4aa8-89be-260e346979a6 Query parameters: {} Body: {} 404 
+LOG: DELETE /boards/1edf96f9-5a19-4c27-af04-46b1e03f180f Query parameters: {} Body: {} 204 
+LOG: GET /users Query parameters: {} Body: {} 200 
+LOG: POST /users Query parameters: {} Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"} 201 
+LOG: GET /users/af6137e9-6e3c-49a6-8a43-7d3b55352ce6 Query parameters: {} Body: {} 200 
+LOG: DELETE /users/af6137e9-6e3c-49a6-8a43-7d3b55352ce6 Query parameters: {} Body: {} 204 
+LOG: POST /users Query parameters: {} Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"} 201 
+LOG: DELETE /users/07afcf7f-609d-4942-b153-3f7b740ba03b Query parameters: {} Body: {} 204 
+LOG: POST /users Query parameters: {} Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"} 201 
+LOG: PUT /users/d705996f-38af-4c16-bf77-f52c9a5da9d6 Query parameters: {} Body: {"name":"Autotest updated TEST_USER","login":"test_user","password":"T35t_P@55w0rd","id":"d705996f-38af-4c16-bf77-f52c9a5da9d6"} 200 
+LOG: GET /users/d705996f-38af-4c16-bf77-f52c9a5da9d6 Query parameters: {} Body: {} 200 
+LOG: DELETE /users/d705996f-38af-4c16-bf77-f52c9a5da9d6 Query parameters: {} Body: {} 204 
+LOG: POST /users Query parameters: {} Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"} 201 
+LOG: DELETE /users/ad1f4baf-6e23-441d-a171-fd0e129c6303 Query parameters: {} Body: {} 204 
+LOG: POST /users Query parameters: {} Body: {"name":"TEST_USER","login":"test_user","password":"T35t_P@55w0rd"} 201 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: POST /boards/0e731c3a-eb1c-4333-bad4-640a3ced0e9b/tasks Query parameters: {} Body: {"title":"Task #1","order":1,"description":"Lorem ipsum","userId":"3ebb8c49-f710-4c3c-8c87-bd79bfd5a320","boardId":"0e731c3a-eb1c-4333-bad4-640a3ced0e9b"} 201 
+LOG: POST /boards/0e731c3a-eb1c-4333-bad4-640a3ced0e9b/tasks Query parameters: {} Body: {"title":"Task #2","order":2,"description":"Lorem ipsum","userId":"3ebb8c49-f710-4c3c-8c87-bd79bfd5a320","boardId":"0e731c3a-eb1c-4333-bad4-640a3ced0e9b"} 201 
+LOG: DELETE /users/3ebb8c49-f710-4c3c-8c87-bd79bfd5a320 Query parameters: {} Body: {} 204 
+LOG: GET /boards/0e731c3a-eb1c-4333-bad4-640a3ced0e9b/tasks/a6000fcc-eda4-4198-9381-6e9845c39429 Query parameters: {} Body: {} 200 
+LOG: GET /boards/0e731c3a-eb1c-4333-bad4-640a3ced0e9b/tasks/9e65b4ff-7ee3-4c5c-85a2-8684602535bd Query parameters: {} Body: {} 200 
+LOG: DELETE /boards/0e731c3a-eb1c-4333-bad4-640a3ced0e9b/tasks/9e65b4ff-7ee3-4c5c-85a2-8684602535bd Query parameters: {} Body: {} 204 
+LOG: DELETE /boards/0e731c3a-eb1c-4333-bad4-640a3ced0e9b/tasks/a6000fcc-eda4-4198-9381-6e9845c39429 Query parameters: {} Body: {} 204 
+LOG: DELETE /boards/0e731c3a-eb1c-4333-bad4-640a3ced0e9b Query parameters: {} Body: {} 204 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: GET /boards Query parameters: {} Body: {} 200 
+LOG: GET /boards Query parameters: {} Body: {} 200 
+LOG: GET /boards/d16a47ba-8b4f-4fc0-9395-ad6129875613 Query parameters: {} Body: {} 200 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: DELETE /boards/c8fbb77a-a931-43cf-9e31-e7493c986752 Query parameters: {} Body: {} 204 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: PUT /boards/2af24b4d-af9f-4b69-a97f-9ce7f820e54e Query parameters: {} Body: {"id":"2af24b4d-af9f-4b69-a97f-9ce7f820e54e","title":"Autotest updated board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 200 
+LOG: GET /boards/2af24b4d-af9f-4b69-a97f-9ce7f820e54e Query parameters: {} Body: {} 200 
+LOG: DELETE /boards/2af24b4d-af9f-4b69-a97f-9ce7f820e54e Query parameters: {} Body: {} 204 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: DELETE /boards/33b2cbc8-342a-4609-9f52-32be35787c4e Query parameters: {} Body: {} 204 
+LOG: GET /boards/33b2cbc8-342a-4609-9f52-32be35787c4e Query parameters: {} Body: {} 404 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: POST /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks Query parameters: {} Body: {"title":"Task #5","order":5,"description":"Lorem ipsum","boardId":"59cb495f-91b0-4f9d-8cca-1ae911f4ad93","userId":null,"columnId":null} 201 
+LOG: POST /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks Query parameters: {} Body: {"title":"Task #2","order":2,"description":"Lorem ipsum","boardId":"59cb495f-91b0-4f9d-8cca-1ae911f4ad93","userId":null,"columnId":null} 201 
+LOG: POST /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks Query parameters: {} Body: {"title":"Task #4","order":4,"description":"Lorem ipsum","boardId":"59cb495f-91b0-4f9d-8cca-1ae911f4ad93","userId":null,"columnId":null} 201 
+LOG: POST /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks Query parameters: {} Body: {"title":"Task #3","order":3,"description":"Lorem ipsum","boardId":"59cb495f-91b0-4f9d-8cca-1ae911f4ad93","userId":null,"columnId":null} 201 
+LOG: POST /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks Query parameters: {} Body: {"title":"Task #1","order":1,"description":"Lorem ipsum","boardId":"59cb495f-91b0-4f9d-8cca-1ae911f4ad93","userId":null,"columnId":null} 201 
+LOG: GET /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks/5bf80ba5-69e6-4362-b77d-94cc2ef73f10 Query parameters: {} Body: {} 200 
+LOG: GET /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks/455e493d-a150-4a41-bc06-f15367e7af41 Query parameters: {} Body: {} 200 
+LOG: GET /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks/ccb445b9-e131-491e-8163-1c515f557c61 Query parameters: {} Body: {} 200 
+LOG: GET /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks/508c0e4a-071a-407c-86e7-ba937188bc5e Query parameters: {} Body: {} 200 
+LOG: GET /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks/a383c64d-ad07-4102-aaae-5cae3f6b5bdf Query parameters: {} Body: {} 200 
+LOG: DELETE /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93 Query parameters: {} Body: {} 204 
+LOG: GET /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks/455e493d-a150-4a41-bc06-f15367e7af41 Query parameters: {} Body: {} 404 
+LOG: GET /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks/ccb445b9-e131-491e-8163-1c515f557c61 Query parameters: {} Body: {} 404 
+LOG: GET /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks/508c0e4a-071a-407c-86e7-ba937188bc5e Query parameters: {} Body: {} 404 
+LOG: GET /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks/a383c64d-ad07-4102-aaae-5cae3f6b5bdf Query parameters: {} Body: {} 404 
+LOG: GET /boards/59cb495f-91b0-4f9d-8cca-1ae911f4ad93/tasks/5bf80ba5-69e6-4362-b77d-94cc2ef73f10 Query parameters: {} Body: {} 404 
+LOG: DELETE /boards/d16a47ba-8b4f-4fc0-9395-ad6129875613 Query parameters: {} Body: {} 204 
+LOG: POST /boards Query parameters: {} Body: {"title":"Autotest board","columns":[{"title":"Backlog","order":1},{"title":"Sprint","order":2}]} 201 
+LOG: POST /boards/615793f6-8007-4482-957a-78768ace569e/tasks Query parameters: {} Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null} 201 
+LOG: GET /boards/615793f6-8007-4482-957a-78768ace569e/tasks Query parameters: {} Body: {} 200 
+LOG: GET /boards/615793f6-8007-4482-957a-78768ace569e/tasks Query parameters: {} Body: {} 200 
+LOG: GET /boards/boardId/tasks/1c07e066-66ed-480f-b7bd-3fbe1ea3dffc Query parameters: {} Body: {} 200 
+LOG: POST /boards/615793f6-8007-4482-957a-78768ace569e/tasks Query parameters: {} Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null} 201 
+LOG: DELETE /boards/615793f6-8007-4482-957a-78768ace569e/tasks/db2fb824-905c-45a2-9138-431d75992a06 Query parameters: {} Body: {} 204 
+LOG: POST /boards/615793f6-8007-4482-957a-78768ace569e/tasks Query parameters: {} Body: {"title":"Autotest task","order":0,"description":"Lorem ipsum","userId":null,"boardId":null,"columnId":null} 201 
+LOG: PUT /boards/615793f6-8007-4482-957a-78768ace569e/tasks/392e1db0-6fce-49e2-9ed0-ac3c5a1c31b4 Query parameters: {} Body: {"id":"392e1db0-6fce-49e2-9ed0-ac3c5a1c31b4","title":"Autotest updated task","order":0,"description":"Lorem ipsum","userId":null,"boardId":"615793f6-8007-4482-957a-78768ace569e","columnId":null} 200 
+LOG: GET /boards/615793f6-8007-4482-957a-78768ace569e/tasks/392e1db0-6fce-49e2-9ed0-ac3c5a1c31b4 Query parameters: {} Body: {} 200 
+LOG: GET /boards/615793f6-8007-4482-957a-78768ace569e/tasks/44f28b39-7eea-4f33-b84d-8e6d71066901 Query parameters: {} Body: {} 200 
+LOG: DELETE /boards/615793f6-8007-4482-957a-78768ace569e/tasks/44f28b39-7eea-4f33-b84d-8e6d71066901 Query parameters: {} Body: {} 204 
+LOG: GET /boards/615793f6-8007-4482-957a-78768ace569e/tasks/44f28b39-7eea-4f33-b84d-8e6d71066901 Query parameters: {} Body: {} 404 
+LOG: DELETE /boards/615793f6-8007-4482-957a-78768ace569e Query parameters: {} Body: {} 204 
