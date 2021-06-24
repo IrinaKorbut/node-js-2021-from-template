@@ -1,38 +1,28 @@
-import { boardDB } from '../../common/dataBaseInMemory/boardDB';
-import { Board } from './board.model';
-import { IBoard } from '../../types/index';
+import { getRepository } from 'typeorm';
+import { Board } from '../../entities/board';
 
-const getAll = async (): Promise<Board[]> => boardDB;
+const getAll = async (): Promise<Board[]> => getRepository(Board).find({ where: {} });
 
-const get = async (id: string ): Promise<Board | null> => {
-  const targetBoard = await boardDB.find((board) => board.id === id);
-  return targetBoard || null;
+const get = async (id: string ): Promise<Board | 'NOT_FOUND'> => {
+  const targetBoard = await getRepository(Board).findOne(id);
+  return targetBoard || 'NOT_FOUND';
 };
 
-const create = async (boardData: IBoard): Promise<Board | null> => {
-  const board = new Board(boardData);
-  boardDB.push(board);
-  const newBoard = await get(board.id);
-  return  newBoard || null;
+const create = async (boardData: Board): Promise<Board> => {
+  const newBoard = await getRepository(Board).create(boardData);
+  const savedBoard = await getRepository(Board).save(newBoard);
+  return  savedBoard;
 };
 
-const remove = async (id: string ): Promise<Board | null> => {
-  const board = await get(id);
-  let boardIndex = -1;
-  if (board) {
-    boardIndex = boardDB.indexOf(board);
-  }
-  const removedBoard = boardDB.splice(boardIndex, 1)[0];
-  return removedBoard || null;
+const remove = async (id: string ): Promise<'NOT_FOUND' | 'DELETED'> => {
+  const removeBoard = await getRepository(Board).delete(id);
+  if (removeBoard.affected) return 'DELETED';
+  return 'NOT_FOUND';
 };
 
-const update = async (id: string , boardData: IBoard): Promise<Board | null> => {
-  const oldBoard = await get(id);
-  if (oldBoard) {
-    boardDB[boardDB.indexOf(oldBoard)] = { ...oldBoard, ...boardData, id };
-  }
-  const updatedBoard = await get(id);
-  return updatedBoard;
+const update = async (id: string , boardData: Board): Promise<Board | 'NOT_FOUND'> => {
+  const updatedBoard = await getRepository(Board).update(id, boardData);
+  return  updatedBoard.raw;
 };
 
 export default {
