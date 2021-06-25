@@ -36,8 +36,4 @@ process
   .on('unhandledRejection', unhandledRejectionLogger)
   .on('uncaughtException', unhandledExceptionLogger);
 
-
-// throw Error('Oops!');
-// Promise.reject(Error('Oops!'));
-// eslint-disable-next-line no-unreachable
 export default app;

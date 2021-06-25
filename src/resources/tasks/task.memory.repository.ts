@@ -1,58 +1,46 @@
-import { taskDB } from '../../common/dataBaseInMemory/taskDB';
-import { Task } from './task.model';
-import { ITask } from '../../types/index';
+import { getRepository } from 'typeorm';
+import { Task } from '../../entities/task';
 
-const getAll = async (): Promise<Task[]> => taskDB;
+const getAll = async (): Promise<Task[]> => {
+  const taskRepository = getRepository(Task);
+  const tasks = await taskRepository.find({ where: {} });
+  return tasks;
+}
 
-const get = async (id: string): Promise<Task | null> => {
-  const targetTask = taskDB.find((task) => task.id === id);
-  return targetTask || null;
+const get = async (id: string): Promise<Task | 'NOT_FOUND'> => {
+  const taskRepository = getRepository(Task);
+  const targetTask = await taskRepository.findOne(id);
+  return targetTask || 'NOT_FOUND';
 };
 
-const create = async (boardId: string, taskData: ITask): Promise<Task | null> => {
-  const taskDataDuplicate = { ...taskData };
-  taskDataDuplicate.boardId = taskData.boardId ? taskData.boardId : boardId;
-  const task = new Task(taskDataDuplicate);
-  taskDB.push(task);
-  const createdTask = await get(task.id);
-  return createdTask || null;
+const create = async (taskData: Task, boardID: string): Promise<Task> => {
+  const taskRepository = getRepository(Task);
+  const newTaskData = { ...taskData  };
+  newTaskData.boardId = boardID;
+  const newTask = await taskRepository.create(newTaskData);
+  const savedTask = await taskRepository.save(newTask);
+  return savedTask;
 };
 
-const remove = async (id: string): Promise<Task | null> => {
-  const task = await get(id);
-  let taskIndex = -1;
-  if (task) {
-    taskIndex = taskDB.indexOf(task);
-  }
-  const removedTask = taskDB.splice(taskIndex, 1)[0]
-  return removedTask || null;
+const remove = async (id: string): Promise<'NOT_FOUND' | 'DELETED'> => {
+  const taskRepository = getRepository(Task);
+  const removedTask = await taskRepository.delete(id);
+  if (removedTask.affected) return 'DELETED';
+  return 'NOT_FOUND';
 };
 
-const update = async (id: string, taskData: ITask): Promise<Task | null> => {
-  const oldTask = await get(id);
-  if (oldTask) {
-    taskDB[taskDB.indexOf(oldTask)] = { ...oldTask, ...taskData, id };
-  }
-  const updatedTask = await get(id);
-  return updatedTask || null;
+const update = async (id: string, taskData: Task): Promise<Task | 'NOT_FOUND'> => {
+  const taskRepository = getRepository(Task);
+  const updatedTask = await taskRepository.update(id, taskData);
+  return updatedTask.raw;
 };
 
-const clearTasksAfterDeletingBoard = async (boardId: string): Promise<void> => {
-  for (let i = 0; i < taskDB.length; i += 1) {
-    if (taskDB[i]?.boardId === boardId) {
-      taskDB.splice(i, 1);
-      i -= 1;
-    }
-  }
-};
+const clearTasksAfterDeletingBoard = async (id: string): Promise<void> => {
+  await getRepository(Task).delete({ boardId: id });
+}
 
-const updateTasksAfterDeletingUser = async (userId: string): Promise<void> => {
-  taskDB.forEach((task) => {
-    const taskCopy = task;
-    if (taskCopy.userId === userId) {
-      taskCopy.userId = null;
-    }
-  });
+const updateTasksAfterDeletingUser = async (id: string): Promise<void> => {
+  await getRepository(Task).update({ userId: id }, { userId: undefined })
 };
 
 export default {

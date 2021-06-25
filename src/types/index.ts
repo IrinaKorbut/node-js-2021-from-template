@@ -10,7 +10,9 @@ export interface ICustomError extends Error {
 }
 
 export interface IColumn {
-  title: string
+  idColumn: string;
+  title: string;
+  order: number;
 }
 export interface IBoard {
   id: string,
@@ -23,7 +25,7 @@ export interface ITask {
   title: string,
   order: number,
   description: string,
-  userId: string | null,
+  userId: string,
   boardId: string,
   columnId: string,
 }
@@ -40,3 +42,5 @@ export interface IUserWithoutPassword {
   name: string,
   login: string
 }
+
+export type UserDTO = Omit <IUser, 'id'>;
