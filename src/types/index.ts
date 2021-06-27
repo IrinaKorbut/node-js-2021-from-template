@@ -30,6 +30,11 @@ export interface ITask {
   columnId: string,
 }
 
+export interface ILogin {
+  login: string;
+  password: string;
+}
+
 export interface IUser {
   id: string,
   name: string,
