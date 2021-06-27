@@ -14,7 +14,7 @@ const startConnection = async () => {
     const adminCreate = await userRepository.create({
       name: 'admin',
       login: 'admin',
-      password: bcrypt.hashSync('admin', 8)
+      password: bcrypt.hashSync('admin', 10)
     })
     await userRepository.save(adminCreate);
     console.log('Successfully connected!')
