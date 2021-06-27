@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt";
 import { getRepository} from 'typeorm';
 import { UserDTO } from '../../types';
 import User from '../../entities/user'
@@ -16,7 +17,11 @@ const get = async (id: string): Promise<User | 'NOT_FOUND'> => {
 
 const create = async (userData: User): Promise<User> => {
   const userRepository = getRepository(User);
-  const newUser = await userRepository.create(userData);
+  const newUser = await userRepository.create({
+    name: userData.name,
+    login: userData.login,
+    password: bcrypt.hashSync(userData.password, 8)
+  });
   const savedUser = await userRepository.save(newUser);
   return savedUser;
 };

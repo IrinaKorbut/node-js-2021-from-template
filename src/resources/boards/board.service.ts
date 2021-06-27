@@ -8,8 +8,8 @@ const create = (boardData: Board): Promise<Board> => boardsRepo.create(boardData
 
 const get = (id: string ): Promise<Board | 'NOT_FOUND'> => boardsRepo.get(id);
 
-const remove = (id: string ): Promise<'NOT_FOUND' | 'DELETED'>  => {
-  tasksRepo.clearTasksAfterDeletingBoard(id);
+const remove = async (id: string ): Promise<'NOT_FOUND' | 'DELETED'>  => {
+  await tasksRepo.clearTasksAfterDeletingBoard(id);
   return boardsRepo.remove(id);
 };
 
