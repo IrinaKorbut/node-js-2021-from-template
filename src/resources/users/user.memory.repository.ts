@@ -17,10 +17,12 @@ const get = async (id: string): Promise<User | 'NOT_FOUND'> => {
 
 const create = async (userData: User): Promise<User> => {
   const userRepository = getRepository(User);
+  const { password } = userData;
+  const hashPassword = bcrypt.hashSync(password, 10);
   const newUser = await userRepository.create({
     name: userData.name,
     login: userData.login,
-    password: bcrypt.hashSync(userData.password, 8)
+    password: hashPassword
   });
   const savedUser = await userRepository.save(newUser);
   return savedUser;
@@ -35,7 +37,14 @@ const remove = async (id: string): Promise<'NOT_FOUND' | 'DELETED'> => {
 
 const update = async (id: string, user: UserDTO): Promise<User | 'NOT_FOUND'> => {
   const userRepository = getRepository(User);
-  const updatedUser = await userRepository.update(id, user);
+  const { password } = user;
+  const hashPassword = bcrypt.hashSync(password, 10);
+  const newUserData = await userRepository.create({
+    name: user.name,
+    login: user.login,
+    password: hashPassword
+  });
+  const updatedUser = await userRepository.update(id, newUserData);
   return updatedUser.raw;
 };
 
