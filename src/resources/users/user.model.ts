@@ -19,7 +19,7 @@ export class User {
     this.password = password;
   }
 
-  static toResponse(user: User): IUserWithoutPassword {
+  static toResponse(user: IUser): IUserWithoutPassword {
     const { id, name, login } = user;
     return { id, name, login };
   }
