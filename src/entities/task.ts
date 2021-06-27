@@ -1,27 +1,25 @@
-import {
-    BaseEntity, Column, Entity, PrimaryGeneratedColumn,
-} from 'typeorm';
+import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
-@Entity({ name: 'tasks' })
-export class Task extends BaseEntity {
+@Entity({name: 'tasks'})
+export class Task {
     @PrimaryGeneratedColumn('uuid')
-    id: string | undefined;
+    id!: string;
 
-    @Column('varchar', { length: 25 })
-    title: string | undefined;
+    @Column({nullable: true})
+    title!: string;
 
-    @Column('integer', { nullable: true })
-    order: number | undefined;
+    @Column({nullable: true})
+    order!: number;
 
-    @Column('varchar', { nullable: true })
-    description: string | undefined;
+    @Column()
+    description!: string;
 
-    @Column('varchar', { nullable: true })
-    userId: string | undefined;
+    @Column({nullable: true})
+    userId!: string;
 
-    @Column('varchar', { nullable: true })
-    boardId: string | undefined;
+    @Column({nullable: true})
+    boardId!: string;
 
-    @Column('varchar', { nullable: true })
-    columnId: string | undefined;
+    @Column({nullable: true})
+    columnId!: string;
 }
