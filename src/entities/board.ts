@@ -1,16 +1,15 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany, } from "typeorm";
-// eslint-disable-next-line import/no-cycle
-import Columns from './column';
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
+
 import { IColumn } from '../types/index'
 
-@Entity({name: 'board'})
-export class Board {
+@Entity({ name: 'board' })
+export class Board extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
-    id!: string;
+    id : string | undefined;
 
-    @Column({nullable: true})
-    title!: string;
+    @Column('varchar')
+    title = '';
 
-    @OneToMany(() => Columns, column => column.board, {nullable: true})
-    columns!: IColumn[];
+    @Column('jsonb', { nullable: true })
+    columns: IColumn[] | undefined;
 }

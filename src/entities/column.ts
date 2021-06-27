@@ -1,18 +1,13 @@
-import {Entity, PrimaryGeneratedColumn, Column as dbColumn, ManyToOne,  } from "typeorm";
-// eslint-disable-next-line import/no-cycle,import/named
-import { Board } from "./board";
+import { Entity, PrimaryGeneratedColumn, Column as dbColumn } from 'typeorm';
 
-@Entity({name: 'columns'})
-export default class Column {
+@Entity()
+export class Column {
     @PrimaryGeneratedColumn('uuid')
     id!: string;
 
-    @dbColumn('varchar', {nullable: true})
+    @dbColumn('varchar')
     title!: string;
 
-    @dbColumn('integer', {nullable: true})
+    @dbColumn('integer')
     order!: number;
-
-    @ManyToOne(() => Board, board => board.columns, {onDelete: 'CASCADE'})
-    board!: Board;
 }
